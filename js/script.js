@@ -4,7 +4,7 @@ createApp({
     data(){
         return{
 
-            //oggetto tempo
+            //oggetto temporaneo
             newTask : {
                 text: "",
                 done: false
@@ -20,12 +20,12 @@ createApp({
         }
     },
     methods:{
-     addNewTask(){
+    addNewTask(){
          //pushare task solo se si hanno più di 5 caratteri
         if(this.newTask.text.length <= 5){
             this.tooShort = true;
 
-        }else{
+        } else {
             this.tasks.push({...this.newTask});
             this.newTask.text = "";
             this.newTask.done = false;

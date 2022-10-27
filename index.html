@@ -32,9 +32,9 @@
         <main>
             <div class="tasks-container">
                 <ul>
-                    <li v-for="task in tasks"> 
-                        <span :class="tasks[index].done" @click="taskCompleted"> {{ task.text }} </span> 
-                        <span v-if="tasks[index].done === false" @click="removeTask(index)" class="task-delete"> &cross; </span>
+                    <li v-for="(task, index) in tasks"> 
+                        <span :class="task.done" @click="taskCompleted(index)"> {{ task.text }} </span> 
+                        <span v-if="task.done === false" @click="removeTask(index)" class="task-delete"> &cross; </span>
                         <span v-else class="task-done"> &check; </span> 
                     </li>
                 </ul>
