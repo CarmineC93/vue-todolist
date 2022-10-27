@@ -15,7 +15,6 @@ createApp({
 
                 ],
 
-                index: 0,
                 tooShort : false,
         }
     },
@@ -37,8 +36,8 @@ createApp({
         this.tasks.splice(indexOfTask, 1);
     },
 
-    taskCompleted(){
-        this.tasks[this.index].done = !this.tasks[this.index].done
+    taskCompleted(index){
+        this.tasks[index].done = !this.tasks[index].done
     }
 
     }
