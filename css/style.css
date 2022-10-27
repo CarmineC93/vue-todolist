@@ -17,7 +17,7 @@
 }
 
 .tasks-container{
-    width: 600%;
+    width: 600px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -27,16 +27,15 @@
     border-radius: 20px;
 }
 
-.newtask{
+.new-task{
     text-align: center;
 }
 
-.newtask label{
+.new-task label{
     display: none;
 }
 
-.newtask-button,
-.newtask input{
+.new-task button, input{
     padding: 0.5rem 1rem;
     border-radius: 10px;
 }
@@ -47,14 +46,36 @@
 }
 
 .tasks-container li{
-    display: flex;
     width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     border-bottom: gray;
 }
 
 .task-delete{
     color: red;
-    font-size: 1.5;
+    font-size: 1.5rem;
+    font-weight: 600;
     cursor: pointer;
+}
+
+.task-done{
+    color: rgb(46, 83, 25);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.error{
+    color: red;
+    text-align: center;
+}
+
+.bg_green_btn{
+    background-color: rgb(57, 109, 57);
+    color: white;
+}
+
+.done{
+    text-decoration: line-through;
 }

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
 
@@ -13,25 +15,32 @@
         <header>
 
             <div class="logo">
-                <img src="" alt="">
+                <h1>TO DO LIST</h1>
             </div>
 
             <div class="new-task">
-                <input type="text" id="tasktext">
+                <input v-model.trim= "tasks[index].text" type="text" id="tasktext">
                 <label for="tasktext"></label>
-                <button>Add New Task</button>
+                <button @click="addNewTask" @keyup.enter="addNewTask" class="bg_green_btn">Add New Task</button>
             </div>
 
-            <div class="tasks-container">
-                <ul>
-                    <li> TASK <span class="task-delete"> &cross; </span> </li>
-                </ul>
+            <div class="error" v-if="tooShort">
+                <small>Inserisci un testo di almeno 5 caratteri</small>
             </div>
         </header>
 
-
-
+        <main>
+            <div class="tasks-container">
+                <ul>
+                    <li v-for="task in tasks"> 
+                        <span :class="tasks[index].done" @click="taskCompleted"> {{ task.text }} </span> 
+                        <span v-if="tasks[index].done === false" @click="removeTask(index)" class="task-delete"> &cross; </span>
+                        <span v-else class="task-done"> &check; </span> 
+                    </li>
+                </ul>
+            </div>
+        </main>
     </div>
-    
+    <script src="js/script.js"></script>
 </body>
 </html>
