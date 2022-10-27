@@ -19,9 +19,9 @@
             </div>
 
             <div class="new-task">
-                <input v-model.trim= "newTask.text" type="text" id="tasktext">
+                <input v-model.trim= "newTask.text"  @keyup.enter="addNewTask" type="text" id="tasktext">
                 <label for="tasktext"></label>
-                <button @click="addNewTask" @keyup.enter="addNewTask" class="bg_green_btn">Add New Task</button>
+                <button @click="addNewTask" class="bg_green_btn">Add New Task</button>
             </div>
 
             <div class="error" v-if="tooShort">
@@ -33,7 +33,9 @@
             <div class="tasks-container">
                 <ul>
                     <li v-for="(task, index) in tasks"> 
-                        <span :class="task.done" @click="taskCompleted(index)"> {{ task.text }} </span> 
+                        <span 
+                        :class="{'done': (tasks[index].done === true)}"
+                        @click="taskCompleted(index)"> {{ task.text }} </span> 
                         <span v-if="task.done === false" @click="removeTask(index)" class="task-delete"> &cross; </span>
                         <span v-else class="task-done"> &check; </span> 
                     </li>
