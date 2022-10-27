@@ -19,7 +19,7 @@
             </div>
 
             <div class="new-task">
-                <input v-model.trim= "tasks[index].text" type="text" id="tasktext">
+                <input v-model.trim= "newTask.text" type="text" id="tasktext">
                 <label for="tasktext"></label>
                 <button @click="addNewTask" @keyup.enter="addNewTask" class="bg_green_btn">Add New Task</button>
             </div>
